@@ -1,5 +1,0 @@
-{
-    "port": 5000,
-    "jwtSecret": "ilyas batya",
-    "mongoUrl": "mongodb+srv://ilyas0707:070790i@cluster0-ajsmy.azure.mongodb.net/app?retryWrites=true&w=majority"
-}
