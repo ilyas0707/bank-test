@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000
 
 async function start() {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
+        await mongoose.connect(`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-ajsmy.azure.mongodb.net/app?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
