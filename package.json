@@ -4,7 +4,7 @@
   "description": "MERN practice",
   "main": "app.js",
   "scripts": {
-    "start": "npm install && node app.js",
+    "start": "cross-env NODE_ENV=production MONGODB_URI=mongodb+srv://ilyas0707:070790i@cluster0-ajsmy.azure.mongodb.net/app?retryWrites=true&w=majority node app.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
