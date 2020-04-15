@@ -5,6 +5,7 @@
     width: 60px;
     height: 100vh;
     transition: all .3s;
+    overflow-y: hidden;
 }
 
 .flexBlock {

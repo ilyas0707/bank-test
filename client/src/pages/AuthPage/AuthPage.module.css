@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background: url("./../../img//background.jpg") 0 0 no-repeat;
     background-size: cover;
+    overflow-y: hidden;
 }
 
 .page {
