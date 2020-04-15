@@ -1,4 +1,5 @@
 const express = require("express")
+const config = require('config')
 require("dotenv").config()
 const mongoose = require("mongoose")
 
@@ -19,11 +20,11 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = config.get('port') || 5000
 
 async function start() {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
+        await mongoose.connect(config.get('mongoUri'), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true

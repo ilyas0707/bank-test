@@ -1,4 +1,5 @@
 {
-    "mongoUri": "PUT_YOUR_MONGO_URI",
-    "jwtSecret": "PUT_YOUR_JWT_SECRET"
-  }
+  "port": 5000,
+  "jwtSecret": "ilyas batya",
+  "mongoUri": "mongodb+srv://ilyas0707:070790i@cluster0-ajsmy.azure.mongodb.net/app?retryWrites=true&w=majority"
+}
