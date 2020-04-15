@@ -57,7 +57,7 @@ const AuthPage = () => {
         <div className={Styles.block}>
             <ToastContainer
                 position="top-right"
-                autoClose={2000}
+                autoClose={3000}
                 ref={domNodeRef} />
             <div className={small ? Styles.page : `${Styles.page} ${Styles.pageMedia}`}>
                 <h1 className={xsmall ? Styles.heading : `${Styles.heading} ${Styles.headingMedia}`}>Authorization</h1>
@@ -71,6 +71,7 @@ const AuthPage = () => {
                             placeholder="Email" 
                             onChange={changeHandler} />
                         <label htmlFor="email" className={Styles.label}>Email</label>
+                        <b className={Styles.warn}>Ex: *****@email.domain</b>
                     </div>
                     <div className={small ? Styles.inputBlock : `${Styles.inputBlock} ${Styles.inputBlockMedia}`}>
                         <input type="password" 
@@ -81,6 +82,7 @@ const AuthPage = () => {
                             placeholder="Password"
                             onChange={changeHandler} />
                         <label htmlFor="password" className={Styles.label}>Password</label>
+                        <b className={Styles.warn}>Must be minimum 6 characters</b>
                     </div>
                 </form>
                 <div className={Styles.buttons}>

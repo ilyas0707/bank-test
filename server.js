@@ -21,9 +21,11 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000
 
+// MONGOLAB_PINK_URI
+
 async function start() {
     try {
-        await mongoose.connect(process.env.MONGOLAB_PINK_URI, {
+        await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true

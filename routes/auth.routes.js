@@ -7,12 +7,9 @@ require("dotenv").config()
 const router = Router()
 
 // api/auth/register
-router.post(
-    "/register", 
-    [
+router.post("/register", [
         check("email", "Not suitable email").isEmail(),
-        check("password", "Minimum length of password is 6").isLength({ min: 6 })
-    ],
+        check("password", "Minimum length of password is 6").isLength({ min: 6 })],
     async (req, res) => {
     try {
         const errors = validationResult(req)
