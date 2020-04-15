@@ -71,16 +71,14 @@ const AuthPage = () => {
                     </div>
                 </form>
                 <div className={Styles.buttons}>
-                    <input 
+                    <a
                         type="submit"
                         className={loading ? Styles.loading : xsmall ? Styles.btn : `${Styles.btn} ${Styles.btnMedia}`}
-                        onClick={loginHandler}
-                        value={loading ? "" : "Login"} />
-                    <input 
+                        onClick={loginHandler}>{loading ? "" : "Login"}</a>
+                    <a 
                         type="submit"
                         className={loading ? Styles.loading : xsmall ? Styles.btn : `${Styles.btn} ${Styles.btnMedia}`}
-                        onClick={registerHandler}
-                        value={loading ? "" : "Sign Up"} />
+                        onClick={registerHandler}>{loading ? "" : "Sign Up"}</a>
                 </div>
             </div>
         </div>

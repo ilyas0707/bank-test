@@ -127,7 +127,7 @@
 .message {
     position: absolute; 
     top: 50px; 
-    right:50px; 
+    right: 50px; 
     background: #034381; 
     padding: 0 20px; 
     border-radius: 5px; 
@@ -159,6 +159,7 @@
 }
 
 .loading {
+    display: inline-block;
     width: 30px;
     height: 30px;
     margin-right: 10px;
