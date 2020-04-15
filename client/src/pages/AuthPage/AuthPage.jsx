@@ -22,14 +22,16 @@ const AuthPage = () => {
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
-    const registerHandler = async () => {
+    const registerHandler = async (e) => {
+        e.preventDefault()
         try {
             const data = await request("/api/auth/register", "POST", { ...form })
             message(data.message)
         } catch (e) {}
     }
 
-    const loginHandler = async () => {
+    const loginHandler = async (e) => {
+        e.preventDefault()
         try {
             const data = await request("/api/auth/login", "POST", { ...form })
             auth.login(data.token, data.userId)

@@ -12,14 +12,13 @@ export const useMessage = () => {
             left: 50%;
             transform: translateX(-50%);
             font-size: 18px; 
-            background: #034381; 
-            padding: 5px 20px; 
-            border-radius: 5px; 
+            background: #00e600; 
+            padding: 5px 20px;
             transition: .5s all;`
             root.appendChild(message)
-            setTimeout(() => message.style.cssText += `top: 60px;`, 3000)
-            setTimeout(() => message.style.cssText += `opacity: .5;`, 3200)
-            setTimeout(() => root.removeChild(message), 3500)
+            setTimeout(() => message.style.cssText += `top: 60px;`, 2500)
+            setTimeout(() => message.style.cssText += `opacity: .5;`, 2700)
+            setTimeout(() => root.removeChild(message), 3000)
         }
     }, [])
 }
