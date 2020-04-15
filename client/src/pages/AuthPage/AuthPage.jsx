@@ -49,7 +49,7 @@ const AuthPage = () => {
             <div className={small ? Styles.page : `${Styles.page} ${Styles.pageMedia}`}>
                 <h1 className={xsmall ? Styles.heading : `${Styles.heading} ${Styles.headingMedia}`}>Authorization</h1>
                 <form action="#" className={Styles.form}>
-                    <div className={xsmall ? Styles.inputBlock : `${Styles.inputBlock} ${Styles.inputBlockMedia}`}>
+                    <div className={small ? Styles.inputBlock : `${Styles.inputBlock} ${Styles.inputBlockMedia}`}>
                         <input type="text" 
                             className={Styles.input} 
                             id="email" 
@@ -59,7 +59,7 @@ const AuthPage = () => {
                             onChange={changeHandler} />
                         <label htmlFor="email" className={Styles.label}>Email</label>
                     </div>
-                    <div className={xsmall ? Styles.inputBlock : `${Styles.inputBlock} ${Styles.inputBlockMedia}`}>
+                    <div className={small ? Styles.inputBlock : `${Styles.inputBlock} ${Styles.inputBlockMedia}`}>
                         <input type="password" 
                             className={Styles.input} 
                             id="password" 
@@ -72,10 +72,12 @@ const AuthPage = () => {
                 </form>
                 <div className={Styles.buttons}>
                     <a
+                        href="/"
                         type="submit"
                         className={loading ? Styles.loading : xsmall ? Styles.btn : `${Styles.btn} ${Styles.btnMedia}`}
                         onClick={loginHandler}>{loading ? "" : "Login"}</a>
                     <a 
+                        href="/"
                         type="submit"
                         className={loading ? Styles.loading : xsmall ? Styles.btn : `${Styles.btn} ${Styles.btnMedia}`}
                         onClick={registerHandler}>{loading ? "" : "Sign Up"}</a>
