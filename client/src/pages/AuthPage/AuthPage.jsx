@@ -1,22 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, createRef } from 'react'
 import Styles from "./AuthPage.module.css"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import { useMediaQuery } from 'react-responsive'
 import { useHttp } from "./../../hooks/http.hook"
-import { useMessage } from "./../../hooks/message.hook"
+import { useError } from "../../hooks/error.hook"
 import { AuthContext } from '../../context/AuthContext'
+import { useSuccess } from '../../hooks/success.hook';
 
 const AuthPage = () => {
     const auth = useContext(AuthContext)
-    const message = useMessage()
+    const errorMessage = useError()
+    const successMessage = useSuccess()
     const { loading, request, error, clearError } = useHttp()
     const [form, setForm] = useState({
         email: "", password: ""
     })
 
     useEffect(() => {
-        message(error)
+        errorMessage(error)
         clearError()
-    }, [error, message, clearError])
+    }, [error, errorMessage, clearError])
 
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -26,7 +30,8 @@ const AuthPage = () => {
         e.preventDefault()
         try {
             const data = await request("/api/auth/register", "POST", { ...form })
-            message(data.message)
+            if (data.message === "User has created")
+            successMessage(data.message)
         } catch (e) {}
     }
 
@@ -46,8 +51,14 @@ const AuthPage = () => {
         { minDeviceWidth: 370 }
     )
 
+    const domNodeRef = createRef();
+
     return(
         <div className={Styles.block}>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                ref={domNodeRef} />
             <div className={small ? Styles.page : `${Styles.page} ${Styles.pageMedia}`}>
                 <h1 className={xsmall ? Styles.heading : `${Styles.heading} ${Styles.headingMedia}`}>Authorization</h1>
                 <form action="#" className={Styles.form}>
