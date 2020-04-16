@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext, createRef } from 'react'
 import Styles from "./AuthPage.module.css"
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 import { useMediaQuery } from 'react-responsive'
 import { useHttp } from "./../../hooks/http.hook"
 import { useError } from "../../hooks/error.hook"
 import { AuthContext } from '../../context/AuthContext'
-import { useSuccess } from '../../hooks/success.hook';
+import { useSuccess } from '../../hooks/success.hook'
 
 const AuthPage = () => {
     const auth = useContext(AuthContext)
