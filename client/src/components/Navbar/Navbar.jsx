@@ -14,7 +14,7 @@ export const Navbar = () => {
     const logoutHandler = event => {
         event.preventDefault()
         auth.logout()
-        history.push("/")
+        history.push("/")//
     }
 
     const showModal = event => {
