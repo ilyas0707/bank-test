@@ -22,7 +22,8 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000
 
-// MONGOLAB_PINK_URI
+// MONGOLAB_PINK_URI // heroku
+// MONGODB_URI // localhost
 
 async function start() {
     try {

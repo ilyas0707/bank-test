@@ -21,7 +21,7 @@ router.post("/register", [
             })
         }
 
-        const { email, password } = req.body
+        const { nickname, email, password } = req.body
 
         const candidate = await User.findOne({ email })
 
@@ -31,7 +31,7 @@ router.post("/register", [
 
         const hashedPassword = await bcrypt.hash(password, 12)
 
-        const user = new User({ email, password: hashedPassword })
+        const user = new User({ nickname, email, password: hashedPassword })
 
         await user.save()
 
@@ -45,6 +45,7 @@ router.post("/register", [
 router.post(
     "/login",
     [
+        check("nickname", "Enter a nickname").exists(),
         check("email", "Enter a suitable email").normalizeEmail().isEmail(),
         check("password", "Enter a password").exists()
     ],
@@ -59,7 +60,7 @@ router.post(
             })
         }
 
-        const { email, password } = req.body
+        const { nickname, email, password } = req.body
 
         const user = await User.findOne({ email })
 
