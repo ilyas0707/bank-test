@@ -24,9 +24,12 @@ router.post("/register", [
         const { nickname, email, password } = req.body
 
         const candidate = await User.findOne({ email })
+        const nick = await User.findOne({ nickname })
 
-        if (candidate) {
-            return res.status(400).json({ message: "This user is already created" })
+        if (nick) {
+            return res.status(400).json({ message: "This nickname is already used" })
+        } else if (candidate) {
+            return res.status(400).json({ message: "This email is already used" })
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)
@@ -45,7 +48,6 @@ router.post("/register", [
 router.post(
     "/login",
     [
-        check("nickname", "Enter a nickname").exists(),
         check("email", "Enter a suitable email").normalizeEmail().isEmail(),
         check("password", "Enter a password").exists()
     ],
@@ -60,7 +62,7 @@ router.post(
             })
         }
 
-        const { nickname, email, password } = req.body
+        const { email, password } = req.body
 
         const user = await User.findOne({ email })
 
