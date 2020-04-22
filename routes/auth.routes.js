@@ -8,6 +8,7 @@ const router = Router()
 
 // api/auth/register
 router.post("/register", [
+        check("nickname", "Must be unique").exists(),
         check("email", "Not suitable email").isEmail(),
         check("password", "Minimum length of password is 6").isLength({ min: 6 })],
     async (req, res) => {
@@ -84,6 +85,20 @@ router.post(
 
         res.json({ token, userId: user.id })
 
+    } catch (e) {
+        res.status(500).json({ message: "Something went wrong, try again" })
+    }
+})
+
+router.get("/user/:id", [], async (req, res) => {
+    try {
+        await User.findById(req.params.id, (error, data) => {
+            if (error) {
+                return next(error)
+            } else {
+                res.json(data)
+            }
+        })
     } catch (e) {
         res.status(500).json({ message: "Something went wrong, try again" })
     }
