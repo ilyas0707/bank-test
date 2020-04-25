@@ -8,7 +8,6 @@ const router = Router()
 
 // api/auth/register
 router.post("/register", [
-        check("nickname", "Must be unique").exists(),
         check("email", "Not suitable email").isEmail(),
         check("password", "Minimum length of password is 6").isLength({ min: 6 })],
     async (req, res) => {
@@ -22,20 +21,17 @@ router.post("/register", [
             })
         }
 
-        const { nickname, email, password } = req.body
+        const { email, password } = req.body
 
         const candidate = await User.findOne({ email })
-        const nick = await User.findOne({ nickname })
 
-        if (nick) {
-            return res.status(400).json({ message: "This nickname is already used" })
-        } else if (candidate) {
+        if (candidate) {
             return res.status(400).json({ message: "This email is already used" })
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)
 
-        const user = new User({ nickname, email, password: hashedPassword })
+        const user = new User({ email, password: hashedPassword })
 
         await user.save()
 
@@ -80,25 +76,11 @@ router.post(
         const token = jwt.sign(
             { userId: user.id },
             process.env.JWT_SECRET,
-            { expiresIn: "1h" }
+            { expiresIn: "12h" }
         )
 
         res.json({ token, userId: user.id })
 
-    } catch (e) {
-        res.status(500).json({ message: "Something went wrong, try again" })
-    }
-})
-
-router.get("/user/:id", [], async (req, res) => {
-    try {
-        await User.findById(req.params.id, (error, data) => {
-            if (error) {
-                return next(error)
-            } else {
-                res.json(data)
-            }
-        })
     } catch (e) {
         res.status(500).json({ message: "Something went wrong, try again" })
     }
