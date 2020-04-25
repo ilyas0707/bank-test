@@ -29,8 +29,8 @@ const CreatePage = () => {
         clearError()
     }, [error, errorMessage, clearError])
 
-    const changeHandler = event => {
-        setForm({ ...form, [event.target.name]: event.target.value })
+    const changeHandler = e => {
+        setForm({ ...form, [e.target.name]: e.target.value })
     }
 
     const addTransaction = async (e) => {
@@ -72,7 +72,7 @@ const CreatePage = () => {
 
     return(
         <div className={Styles.add}>
-            <h2 className={Styles.heading}>Add Transation</h2>
+            <h2 className={Styles.heading}>Add Transaction</h2>
             <form action="#" className={small ? `${Auth.form} ${Styles.form}` : `${Auth.form} ${Styles.form} ${Styles.formMedia}`}>
                 {elems}
                 <div className={Auth.buttons}>

@@ -38,8 +38,8 @@ const Auth = () => {
         }
     }
 
-    const changeHandler = event => {
-        setForm({ ...form, [event.target.name]: event.target.value })
+    const changeHandler = e => {
+        setForm({ ...form, [e.target.name]: e.target.value })
     }
 
     const registerHandler = async (e) => {

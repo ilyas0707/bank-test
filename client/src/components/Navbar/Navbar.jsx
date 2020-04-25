@@ -12,25 +12,25 @@ export const Navbar = () => {
     const [show, setShow] = useState(false)
     const [open, setOpen] = useState(false)
 
-    const logoutHandler = event => {
-        event.preventDefault()
+    const logoutHandler = e => {
+        e.preventDefault()
         auth.logout()
         history.push("/")
     }
 
-    const showModal = event => {
-        event.preventDefault()
+    const showModal = e => {
+        e.preventDefault()
         setShow(true)
     }
 
-    const logoutCancel = event => {
-        event.preventDefault()
+    const logoutCancel = e => {
+        e.preventDefault()
         setShow(false)
         history.push("/")
     }
 
-    const menuOpen = event => {
-        event.preventDefault()
+    const menuOpen = e => {
+        e.preventDefault()
 
         if (open === false){
             setOpen(true)
