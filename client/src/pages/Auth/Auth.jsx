@@ -68,7 +68,7 @@ const Auth = () => {
     }
 
     const small = useMediaQuery(
-        { minDeviceWidth: 520 }
+        { minDeviceWidth: 550 }
     )
     
     const xsmall = useMediaQuery(
@@ -91,7 +91,7 @@ const Auth = () => {
                     value={ id === "email" ? form.email : form.password } 
                     onChange={changeHandler} />
                 <label htmlFor={ id } className={Styles.label}>{ name }</label>
-                { show ? <b className={Styles.warn}>{ text }</b> : <span></span> }
+                { show ? <p className={Styles.warn}>{ text }</p> : <span></span> }
             </div>
         )
     })
