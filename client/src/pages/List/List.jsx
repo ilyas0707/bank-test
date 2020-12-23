@@ -22,7 +22,7 @@ const LinksPage = (userId) => {
 
     useEffect(() => {
         getData()
-    }, [getData])
+    }, [getData]) 
 
     return(
         <div className={Styles.list}>
