@@ -59,6 +59,7 @@ const CreatePage = () => {
     const elems = items.map(({id, name, type}) => {
         return(
             <div key={ id } className={Auth.inputBlock}>
+                
                 <input type={ type } 
                     className={Auth.input} 
                     name={ id }
@@ -66,6 +67,7 @@ const CreatePage = () => {
                     value={ type === "number" ? form.amount : form.bankName } 
                     onChange={changeHandler} />
                 <label htmlFor={ id } className={Auth.label}>{ name }</label>
+                
             </div>
         )
     })
