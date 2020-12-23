@@ -35,7 +35,7 @@ const Auth = () => {
             setShow(true)
         } else if (show === true) {
             setShow(false)
-        }
+        } 
     }
 
     const changeHandler = e => {
