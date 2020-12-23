@@ -1,6 +1,6 @@
 <h1>Final project</h1>
 
-<p>Project contains both backend and frontend, there is registration and autharization. Project creates bank transactions and user can control them</p>
+<p>Project contains both backend and frontend, there is registration and autharization.<br>Project creates bank transactions and user can control them</p>
 
 <a href="https://banktest-app.herokuapp.com/" target="_blank">Link to project</a>
 
